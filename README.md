@@ -1,0 +1,78 @@
+# Property Mananger
+
+This is a relevant knowledge demonstration on how to develop a web page using PHP 7, Laravel 5.7 and RESTful API.
+The system manages properties with interaction of Google Maps API to complement address information such as latitude and longitude providing or receiving new property information though RESTful API.
+If you do not know how it works, it is a good manner to analise and learn with this project. 
+Have fun! :)
+
+## Getting Started
+
+### Prerequisites
+
+1 - Install PHP 7 on your machine;
+
+2 - If you are using Windows, set the Environment Variables adding the PHP folder location;
+
+3 - Copy/Clone the source code/repository to the folder where PHP projects reside;
+
+4 - Create a database with the following configuration provided by Laravel documentation (https://laravel.com/docs/5.7/database):
+Open a SGBD, do the login and create a new database with the name "propertymanagement" and select the collation "utf8mb4_unicode_ci"
+
+## Deployment
+
+//Add additional notes about how to deploy this on a live system
+1 - Config the database migration
+Open the Terminal/Command Prompt and run the following:
+```
+$ cd <folder-where-the-projects-reside>/<project-name>
+$ php artisan migrate
+```
+
+2 - Run the database seed
+Open the Terminal/Command Prompt and run the following:
+```
+$ php artisan db:seed --class=CitiesTableSeeder
+$ php artisan db:seed --class=PropertiesTableSeeder
+```
+
+3 - Start the server with the following command line:
+```
+$ cd <folder-where-the-projects-reside>/<project-name>
+$ php artisan serve
+```
+or using a port, for example, 8080
+```
+$ php artisan serve --port=8080
+```
+
+4 - Open your browser and go to the following address:
+If you choose to use a different port (8080)
+```
+http://localhost:8080
+```
+Else you need to use de default port (8000)
+```
+http://localhost:8000
+```
+
+## Built With
+
+* [Laravel](https://laravel.com/docs/5.7/) - PHP Framework
+* [Materialize](http://archives.materializecss.com/0.100.2/) - CSS Framework for page style
+* [JQuery](https://jquery.com/) - JavaScript AJAX Framework necessary for use some elements of Materialize
+
+## Contributing
+
+Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+
+## Versioning
+
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
+
+## Authors
+
+* **Alexandre Portella Ribeiro** - *Initial work* - [Property Mananger](https://github.com/alexandrepro/property-mananger)
+
+## License
+
+This project is licensed under the MIT License
