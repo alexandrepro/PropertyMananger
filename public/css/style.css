@@ -1,0 +1,95 @@
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+main {
+	flex: 1 0 auto;
+}
+
+/*** !important was needed for snippet - overwrite the default css ***/
+
+/* Toast */
+.toast {
+	font-size: 13px !important;
+}
+
+/* Navigator */
+div.container ul li a {
+	font-size: 14px !important;
+}
+
+/* input text font-size */
+.input-field input[type=text], input[type=email], input[type=password], .materialize-textarea {
+	font-size: 12px !important;
+}
+
+/* label text-area focus color */
+.input-field input[type=text]:focus + label, input[type=email]:focus + label, input[type=password]:focus + label, .materialize-textarea:focus:not([readonly]) + label {
+	color: #000000 !important;
+	font-size: 15px !important;
+}
+
+/* label text-area underline focus color */
+.input-field input[type=text]:focus, input[type=email]:focus, input[type=password]:focus, .materialize-textarea:focus:not([readonly]) {
+	border-bottom: 1px solid #000000 !important;
+	box-shadow: 0 1px 0 0 #000000 !important;
+	font-size: 15px !important;
+}
+
+ul.select-dropdown li span {
+	color: #000000;
+}
+
+.select-wrapper label {
+	font-size: 12px !important;	
+}
+
+.input-field label {
+	font-size: 12px !important;	
+}
+
+/* Screen Track */
+.clean {
+	background-color: transparent !important;
+	border: none !important;
+	box-shadow: none !important;
+}
+
+.breadcrumb {
+	background-color: transparent !important;
+	border: none !important;
+	color: #6C6D6F !important;
+	font-size: 14px;
+	margin-left: -20px !important;
+	margin-right: -20px !important;
+}
+
+.breadcrumb::before {
+	color: #6C6D6F !important;
+}
+
+/* Pagination */
+.pagination li.active span {
+	background-color: #6C6D6F !important;
+	border: #6C6D6F !important;
+}
+
+.pagination li a {
+	color: #6C6D6F !important;
+}
+
+/* Table */
+table td {
+	padding: 4px;
+}
+
+table th {
+	padding: 4px;
+}
+
+/* select - remove bootstrap caret class - adicional down arrow from select field */
+.caret {
+	border-color: transparent !important;
+}
