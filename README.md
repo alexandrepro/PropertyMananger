@@ -1,4 +1,4 @@
-# Property Mananger
+# Property Manager
 
 This is a relevant knowledge demonstration on how to develop a web page using PHP 7, Laravel 5.7 and RESTful API.
 The system manages properties with interaction of Google Maps API to complement address information such as latitude and longitude providing or receiving new property information though RESTful API.
