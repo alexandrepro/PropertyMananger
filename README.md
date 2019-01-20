@@ -16,7 +16,7 @@ Have fun! :)
 3 - Copy/Clone the source code/repository to the folder where PHP projects reside;
 
 4 - Create a database with the following configuration provided by Laravel documentation (https://laravel.com/docs/5.7/database):
-Open a SGBD, do the login and create a new database with the name "propertymanagement" and select the collation "utf8mb4_unicode_ci"
+Open a SGBD, do the login and create a new database with the name "property_manager" and select the collation "utf8mb4_unicode_ci"
 
 ## Deployment
 
@@ -70,7 +70,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Alexandre Portella Ribeiro** - *Initial work* - [Property Mananger](https://github.com/alexandrepro/property-mananger)
+* **Alexandre Portella Ribeiro** - *Initial work* - [Property Manager](https://github.com/alexandrepro/property-manager)
 
 ## License
 
