@@ -1,11 +1,13 @@
-# Property Manager
+# Property Mananger
 
-This is a relevant knowledge demonstration on how to develop a web page using PHP 7, Laravel 5.7 and RESTful API.
-The system manages properties with interaction of Google Maps API to complement address information such as latitude and longitude providing or receiving new property information though RESTful API.
+This is a relevant knowledge demonstration on how to develop a web page using PHP 7, Laravel 5.7 and RESTful API. 
+The system manages properties with interaction of Google Maps API to complement address information such as latitude and longitude providing or receiving new property information though RESTful API. 
 If you do not know how it works, it is a good manner to analise and learn with this project. 
-Have fun! :)
+Enjoy! :)
 
 ## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ### Prerequisites
 
@@ -16,7 +18,7 @@ Have fun! :)
 3 - Copy/Clone the source code/repository to the folder where PHP projects reside;
 
 4 - Create a database with the following configuration provided by Laravel documentation (https://laravel.com/docs/5.7/database):
-Open a SGBD, do the login and create a new database with the name "property_manager" and select the collation "utf8mb4_unicode_ci"
+Open a SGBD, do the login and create a new database with the name "propertymanagement" and select the collation "utf8mb4_unicode_ci"
 
 ## Deployment
 
@@ -53,6 +55,31 @@ If you choose to use a different port like 8080
 http://localhost:8080
 ```
 
+## Running the tests
+
+To test the API functions, we will just need the web browser.
+
+### List all properties
+
+On the web browser go to the following address:
+```
+http://localhost:8000/api/properties
+```
+It will return a JSON output collection of the data from all property.
+
+### Retrieve a specific property
+
+On the web browser go to the following address adding the property ID at the end, according with you have in your database, like:
+```
+http://localhost:8000/api/properties/1
+http://localhost:8000/api/properties/2
+http://localhost:8000/api/properties/3
+.
+.
+.
+```
+It will return a JSON output with the data from a specific property.
+
 ## Built With
 
 * [Laravel](https://laravel.com/docs/5.7/) - PHP Framework
@@ -65,11 +92,11 @@ Please read [CONTRIBUTING.md](https://gist.github.com/alexandrepro/d81e1f64e8210
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
+We use [SemVer](http://semver.org/) for versioning.
 
 ## Authors
 
-* **Alexandre Portella Ribeiro** - *Initial work* - [Property Manager](https://github.com/alexandrepro/property-manager)
+* **Alexandre Portella Ribeiro** - *Initial work* - [Property Mananger](https://github.com/alexandrepro/property-mananger)
 
 ## License
 
