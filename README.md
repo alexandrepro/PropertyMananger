@@ -39,19 +39,18 @@ $ php artisan db:seed --class=PropertiesTableSeeder
 $ cd <folder-where-the-projects-reside>/<project-name>
 $ php artisan serve
 ```
-or using a port, for example, 8080
+If you prefer, you can use a different port, for example, 8080
 ```
 $ php artisan serve --port=8080
 ```
 
 4 - Open your browser and go to the following address:
-If you choose to use a different port (8080)
-```
-http://localhost:8080
-```
-Else you need to use de default port (8000)
 ```
 http://localhost:8000
+```
+If you choose to use a different port like 8080
+```
+http://localhost:8080
 ```
 
 ## Built With
