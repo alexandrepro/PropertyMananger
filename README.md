@@ -20,7 +20,6 @@ Open a SGBD, do the login and create a new database with the name "propertymanag
 
 ## Deployment
 
-//Add additional notes about how to deploy this on a live system
 1 - Config the database migration
 Open the Terminal/Command Prompt and run the following:
 ```
@@ -63,7 +62,7 @@ http://localhost:8000
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](https://gist.github.com/alexandrepro/d81e1f64e82107b7c67cce88e6cf6c6a) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Versioning
 
