@@ -2,12 +2,8 @@
 
 namespace PropertyManager\Http\Controllers\Property;
 
-//\Exception\GuzzleException;
-//use GuzzleHttp\Client;
-
 use Illuminate\Http\Request;
 use PropertyManager\Http\Controllers\Controller;
-//use GuzzleHttp;
 
 // models
 use PropertyManager\City;
@@ -146,17 +142,6 @@ class PropertyController extends Controller
 			->join('cities', 'cities.id', '=', 'properties.city_id')
 			->get();
 
-/*
-		$client = new Client(); // GuzzleHttp\Client
-
-		foreach($properties as $property){
-			$uri = 'https://maps.googleapis.com/maps/api/geocode/json?address='.$property['address_line_1'];
-			$result = (string)$client->post($uri, ['form_params' => ['key'=>'AIzaSyAhZvBzhWt0IimiGTXC3UjbvMdkTAx6zvs']])->getBody();
-			$json =json_decode($result);
-			$property->latitude = $json->results[0]->geometry->location->lat;
-			$property->longitude = $json->results[0]->geometry->location->lng;
-		}
-*/
 		return $properties;
 	}
 
