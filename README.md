@@ -71,7 +71,7 @@ http://localhost:8080
 ```
 
 5 - Configure the Google Maps API Key editing the .env file on your local development or production server environment.
-Open .env file and insert - can be in the end of the file - the generated key on GOOGLE_MAPS_KEY instance like GOOGLE_MAPS_KEY=<YOUR GENERATED API KEY>
+Open .env file and insert - can be in the end of the file - the generated key on GOOGLE_MAPS_KEY instance like GOOGLE_MAPS_KEY=YoUrGeNeRaTeDaPiKeY
 
 
 ## Running the tests
