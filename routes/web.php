@@ -32,6 +32,11 @@ Route::get('/property/create', [
 	'uses'=>'Property\PropertyController@create'
 ]);
 
+Route::get('/property/view/{id}', [
+	'as'=>'property.view', 
+	'uses'=>'Property\PropertyController@view'
+]);
+
 Route::get('/property/edit/{id}', [
 	'as'=>'property.edit', 
 	'uses'=>'Property\PropertyController@edit'

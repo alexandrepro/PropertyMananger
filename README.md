@@ -27,7 +27,13 @@ These instructions will get you a copy of the project up and running on your loc
 3 - Copy/Clone the source code/repository to the folder where PHP projects reside;
 
 4 - Create a database with the following configuration provided by Laravel documentation (https://laravel.com/docs/5.7/database):
-Open a SGBD, do the login and create a new database with the name "propertymanagement" and select the collation "utf8mb4_unicode_ci"
+Open a SGBD, do the login and create a new database with the name "property_manager" and select the collation "utf8mb4_unicode_ci"
+
+5 - Generate a Google Maps API Key.
+Follow the Quick Guide on the Google Maps Platform website https://developers.google.com/maps/documentation/embed/get-api-key and save the key after the process.
+
+6 - Activate the Google Maps API Service called Geocoding API
+Access the https://console.developers.google.com, click on "Enable APIS and Services", select maps on left menu, select Geocoding API and click "Activate".
 
 ## Deployment
 
@@ -64,11 +70,15 @@ If you choose to use a different port like 8080
 http://localhost:8080
 ```
 
+5 - Configure the Google Maps API Key editing the .env file on your local development or production server environment.
+Open .env file and insert - can be in the end of the file - the generated key on GOOGLE_MAPS_KEY instance like GOOGLE_MAPS_KEY=<YOUR GENERATED API KEY>
+
+
 ## Running the tests
 
 To test the API functions, we will just need the web browser.
 
-### List all properties
+### Listing all properties
 
 On the web browser go to the following address:
 ```
@@ -94,6 +104,7 @@ It will return a JSON output with the data from a specific property.
 * [Laravel](https://laravel.com/docs/5.7/) - PHP Framework
 * [Materialize](http://archives.materializecss.com/0.100.2/) - CSS Framework for page style
 * [JQuery](https://jquery.com/) - JavaScript AJAX Framework necessary for use some elements of Materialize
+* [Guzzle](http://docs.guzzlephp.org/en/stable/) - Make PHP HTTP requests easier when using the Google Maps API
 
 ## Contributing
 

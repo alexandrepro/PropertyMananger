@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use PropertyManager\Utilities\GoogleMaps;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +22,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('properties','Property\PropertyController@getProperties');
 Route::get('properties/{id}','Property\PropertyController@getPropertiesById');
-Route::post('properties','Property\PropertyController@putProperties');
+Route::post('properties','Property\PropertyController@postProperties');
+//$coordinates = GoogleMaps::geocodeAddress($request->get('address'));

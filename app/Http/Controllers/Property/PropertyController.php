@@ -20,14 +20,20 @@ class PropertyController extends Controller
 		$postcodes = Property::select('postcode')
 			->orderBy('postcode');
 
-		$cities = City::select('id', 'name')
-			->orderBy('name');
-			
-		$properties = Property::select('properties.id', 'properties.address_line_1', 'properties.address_line_2', 'properties.city_id', 'cities.name', 'properties.postcode')
+		$properties = Property::select('properties.id', 'properties.address_line_1', 'properties.address_line_2', 'properties.city_id', 'cities.name AS city_name', 'properties.postcode')
 			->join('cities', 'cities.id', '=', 'properties.city_id')
 			->get();
-			
-		return view('property.property', compact('postcodes', 'cities', 'properties'));
+		
+		$coordinates = [];
+
+		foreach ($properties as $property) {
+			$coordinates = PropertyController::googleGeocodeApi($property->address_line_1);
+
+			$property->lat = $coordinates['lat'];
+			$property->lng = $coordinates['lng'];
+		}
+
+		return view('property.property', compact('postcodes', 'properties'));
 	}
 	
 	public function create()
@@ -73,6 +79,25 @@ class PropertyController extends Controller
 		return redirect()->route('property.home');
 	}
 	
+	public function view($propertyId)
+	{
+
+		$action = "view";
+
+		$properties = Property::where('id', '=', $propertyId)->first();
+		
+		$coordinates = [];
+		$coordinates = PropertyController::googleGeocodeApi($properties->address_line_1);
+
+		$properties->lat = $coordinates['lat'];
+		$properties->lng = $coordinates['lng'];
+
+		$cities = City::orderBy('cities.name')
+			->get();
+		
+		return view('property.view', compact('action', 'properties', 'cities'));
+	}
+
 	public function edit($propertyId)
 	{
 		$action = "edit";
@@ -119,7 +144,7 @@ class PropertyController extends Controller
 			->orderBy('name','desc')
 			->paginate(10);
 			
-		$properties = Property::select('properties.id', 'properties.address_line_1', 'properties.address_line_2', 'cities.name', 'properties.postcode')
+		$properties = Property::select('properties.id', 'properties.address_line_1', 'properties.address_line_2', 'cities.name AS city_name', 'properties.postcode')
 			->join('cities', 'cities.id', '=', 'properties.city_id')
 			->get();
 
@@ -167,4 +192,45 @@ class PropertyController extends Controller
 
 		return response()->json($property, 201);
 	}
+
+	public function postProperties(Request $request)
+	{
+		$property = Property::create($request->all());
+
+		return response()->json($property, 201);
+	}
+
+	// Through an address, get the latitude and longitude
+	public static function googleGeocodeApi($address){
+	
+		// First: Generate and a Google Maps API Key.
+		// Second: Open .env file and insert the generated key on GOOGLE_MAPS_KEY instance.
+		// Third: You have to access the https://console.developers.google.com, click on "Enable APIS and Services", select maps on left menu, select Geocoding API and click "Activate".
+		
+		// Builds the URL and request to the Google Maps API
+		$url = 'https://maps.googleapis.com/maps/api/geocode/json?address='.urlencode($address).'&key='.env("GOOGLE_MAPS_KEY");
+
+		// Creates a Guzzle Client to make the Google Maps request.
+		$client = new \GuzzleHttp\Client();
+
+		// Send a GET request to the Google Maps API and get the body of the response.
+		$geocodeResponse = $client->get($url)->getBody();
+
+		$geocodeData = json_decode($geocodeResponse);
+
+		$coordinates['lat'] = null;
+		$coordinates['lng'] = null;
+
+		if(!empty($geocodeData)
+				&& $geocodeData->status != 'ZERO_RESULTS' 
+				&& isset( $geocodeData->results ) 
+				&& isset( $geocodeData->results[0] ) ){
+			$coordinates['lat'] = $geocodeData->results[0]->geometry->location->lat;
+			$coordinates['lng'] = $geocodeData->results[0]->geometry->location->lng;
+		}
+
+		return $coordinates;
+
+	}
+
 }

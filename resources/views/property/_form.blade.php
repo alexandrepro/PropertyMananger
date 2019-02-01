@@ -29,3 +29,13 @@
 	<input type="text" name="postcode" id="postcode" value="{{ isset($properties->postcode) ? old('postcode', $properties->postcode) : old('postcode', '') }}" class="validate" required oninvalid="javascript: Materialize.toast('Fill the Postcode.', 4000, 'red');"></input>
 	<label for="postcode">Postcode</label>
 </div>
+@if($action == "view")
+<div class="input-field">
+	<input type="text" name="latitude" id="latitude" value="{{ isset($properties->lat) ? old('latitude', $properties->lat) : old('latitude', '') }}"></input>
+	<label for="latitude">Latitude</label>
+</div>
+<div class="input-field">
+	<input type="text" name="longitude" id="longitude" value="{{ isset($properties->lng) ? old('longitude', $properties->lng) : old('longitude', '') }}"</input>
+	<label for="longitude">Longitude</label>
+</div>
+@endif

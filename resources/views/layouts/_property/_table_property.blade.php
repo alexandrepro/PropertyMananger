@@ -5,6 +5,9 @@
 			<th>Address Line 2</th>
 			<th>City</th>
 			<th>Postcode</th>
+			<th>Latitude</th>
+			<th>Longitude</th>
+			<th>&nbsp</th>
 			<th>&nbsp</th>
 			<th>&nbsp</th>
 		</tr>
@@ -16,6 +19,9 @@
 			<td>{{ $property->address_line_2 }}</td>
 			<td>{{ $property->city_name }}</td>
 			<td>{{ $property->postcode }}</td>
+			<td>{{ $property->lat }}</td>
+			<td>{{ $property->lng }}</td>
+			<td><a class="btn blue" href="{{ route('property.view', $property->id) }}">View</a></td>
 			<td><a class="btn orange" href="{{ route('property.edit', $property->id) }}">Edit</a></td>
 			<td><a class="btn red" href="{{ route('property.delete', $property->id) }}">Delete</a></td>
 		</tr>
